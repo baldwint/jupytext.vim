@@ -273,6 +273,7 @@ function s:read_from_ipynb()
         call s:debugmsg(l:output)
         if v:shell_error
             echoerr l:cmd.": ".v:shell_error
+            silent execute "read ++enc=utf-8 ".fnameescape(l:filename)
             return
         endif
     endif
